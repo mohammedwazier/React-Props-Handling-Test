@@ -1,25 +1,85 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Green from './nest1';
+
+
+// class Blue extends Comment{
+//   constructor(props){
+//     super(props);
+//     this.state = {
+//       data: props
+//     }
+//   }
+
+//   render(){
+//     return(
+//       <div className="box blue">
+//         {props.testing}
+//         <Green number={props.number} testing="20"/>
+//       </div>
+//     )
+//   }
+// }
+
+// const Blue = (props) => {
+//   let angka = props.number;
+
+//   const back = (dat) => {
+//     angka = dat.number;
+//     console.log(dat, 'Angka: '+angka);
+//     return angka;
+//   }
+
+//   return(
+//     <div className="box blue">
+//       {console.log(angka)}
+//       <Green number={angka} back={back}/>
+//     </div>
+//   )
+// }
+
+class Blue extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      data: props.number
+    }
+  }
+  back = (dat) => {
+    // console.log(dat);
+    this.setState({
+      data: dat.number
+    }, () => this.props.kembali(this.state.data));
+    // this.setState
+    // this.setState() 
+    // angka = dat.number;
+    // console.log(dat, 'Angka: '+angka);
+    // return angka;
+  }
+  render(){
+    // console.log(this.state);
+    return(
+      <div className="box blue">
+        {this.state.data}
+        <Green number={this.state.data} back={this.back}/>
+      </div>
+    )
+  }
+}
 
 class App extends Component {
+  state = {
+    number: 10
+  }
+  kembali = (dats) => {
+    console.log(dats);
+    this.setState({number: dats});
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="box red">
+        {this.state.number}
+        <Blue number={this.state.number} kembali={this.kembali}/>
       </div>
     );
   }
