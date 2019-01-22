@@ -3,24 +3,7 @@ import './App.css';
 import Green from './nest1';
 
 
-// class Blue extends Comment{
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//       data: props
-//     }
-//   }
-
-//   render(){
-//     return(
-//       <div className="box blue">
-//         {props.testing}
-//         <Green number={props.number} testing="20"/>
-//       </div>
-//     )
-//   }
-// }
-
+//Static Function
 // const Blue = (props) => {
 //   let angka = props.number;
 
@@ -38,6 +21,9 @@ import Green from './nest1';
 //   )
 // }
 
+//Class
+// const foo = 'asd';
+// console.log(foo);
 class Blue extends Component {
   constructor(props){
     super(props);
